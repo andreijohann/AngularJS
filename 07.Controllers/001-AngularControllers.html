@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<!-- 
+AngularJS Controller
+
+Applications in AngularJS are controlled by controllers.
+
+Because of the immediate synchronization of the model and the view, the controller can be completely separated from the view, 
+and simply concentrate on the model data. 
+Thanks to the data binding in AngularJS, the view will reflect any changes made in the controller.
+-->
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1 ng-click="changeName()">{{firstname}}</h1>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+        $scope.firstname = "Andrei";
+        $scope.changeName = function() {
+            $scope.firstname = "Andrei Johann";
+        }
+    });
+</script>
+</body>
+</html>
