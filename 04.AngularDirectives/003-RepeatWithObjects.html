@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<!-- 
+The ng-repeat directive actually clones HTML elements once for each item in a collection.
+-->
+
+<div ng-app=""  ng-init="names=[
+{name:'Andrei',country:'Australia'},
+{name:'Diego',country:'Canada'},
+{name:'Oscar',country:'Brazil'}]">
+
+    <ul>
+   <li ng-repeat="x in names"> 
+       {{x.name + ', ' + x.country }} 
+   </li>
+   </ul>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<!-- 
+In addition to all the built-in AngularJS directives, you can create your own directives.
+
+New directives are created by using the .directive function.
+
+To invoke the new directive, make an HTML element with the same tag name as the new directive.
+
+When naming a directive, you must use a camel case name, w3TestDirective, but when invoking it, you must use - separated name, w3-test-directive
+
+You can invoke a directive by using:
+
+Element name
+Attribute
+Class
+Comment
+
+-->
+
+<div ng-app="appListaOrgones" ng-controller="ctrlLst" >
+
+    <p>Element name</p>
+    <p><andrei-test-directive></andrei-test-directive></p>
+
+<p>Attribute</p>
+<p andrei-test-directive></p>
+
+<p>Class</p>
+<p class="andrei-test-directive" ></p>
+
+
+<p>Comment</p>
+<!-- directive: andrei-test-directive -->
+
+</div>
+
+<script>
+
+var app = angular.module("appListaOrgones", []);
+
+app.directive("andreiTestDirective", function() {
+    return {
+        restrict : "EACM",
+        replace : true,
+        template : "<h1>Made by a directive!</h1>"
+    };
+});
+
+</script>
+
+</body>
+</html>
