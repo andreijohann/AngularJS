@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- 
+
+-->
+<body>
+
+<div ng-app="myApp" >
+
+<div  ng-controller="costCtrl">
+    <h2>The currency Filter</h2>
+    <p>Price: {{ price | currency }}</p>
+</div>
+    
+
+<div  ng-controller="namesCtrl">
+<h2>The filter Filter</h2>
+
+<p>Filtro: <input type="text" ng-model="test"></p>
+
+<ul>
+  <li ng-repeat="x in names | filter : test">
+    {{ x }}
+  </li>
+</ul>
+
+</div>
+
+<div  ng-controller="namesCtrlv2">
+    <h2>Sort an Array Based on User Input</h2>
+    <p>Click the table headers to change the sorting order:</p>
+
+    <table border="1" width="100%">
+    <tr>
+    <th ng-click="orderByMe('name')">Name</th>
+    <th ng-click="orderByMe('country')">Country</th>
+    </tr>
+    <tr ng-repeat="x in names | orderBy:myOrderBy">
+    <td>{{x.name}}</td>
+    <td>{{x.country}}</td>
+    </tr>
+    </table>
+
+</div>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('costCtrl', function($scope) {
+    $scope.price = 58;
+});
+
+app.controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'Jani',
+        'Carl',
+        'Margareth',
+        'Hege',
+        'Joe',
+        'Gustav',
+        'Birgit',
+        'Mary',
+        'Kai'
+    ];
+});
+
+app.controller('namesCtrlv2', function($scope) {
+    $scope.names = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
+});
+</script>
+
+</body>
+</html>

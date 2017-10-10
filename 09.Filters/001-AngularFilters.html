@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- 
+Filters can be added in AngularJS to format data.
+
+AngularJS Filters
+AngularJS provides filters to transform data:
+
+currency - Format a number to a currency format.
+date - Format a date to a specified format.
+filter - Select a subset of items from an array.
+json - Format an object to a JSON string.
+limitTo - Limits an array/string, into a specified number of elements/characters.
+lowercase - Format a string to lower case.
+number - Format a number to a string.
+orderBy - Orders an array by an expression.
+uppercase - Format a string to upper case.
+
+-->
+<body>
+
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<p>The name is {{ lastName | lowercase }}</p>
+
+</div>
+
+<script>
+angular.module('myApp', []).controller('personCtrl', function($scope) {
+    $scope.firstName = "Andrei",
+    $scope.lastName = "Johann"
+});
+</script>
+
+</body>
+</html>
